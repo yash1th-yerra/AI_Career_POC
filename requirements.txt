@@ -2,11 +2,12 @@ fastapi
 uvicorn
 python-dotenv
 pydantic
+langchain-google-genai 
 langchain
-gemini-ai
 spacy
 pdfplumber
 docx2txt
 sentence-transformers
 faiss-cpu
 psycopg2-binary
+bs4
