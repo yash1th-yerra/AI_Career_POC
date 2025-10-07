@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-dotenv
+pydantic
+langchain
+gemini-ai
+spacy
+PyPDF2
+docx2txt
+sentence-transformers
+faiss-cpu
+psycopg2-binary
