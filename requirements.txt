@@ -5,7 +5,7 @@ pydantic
 langchain
 gemini-ai
 spacy
-PyPDF2
+pdfplumber
 docx2txt
 sentence-transformers
 faiss-cpu

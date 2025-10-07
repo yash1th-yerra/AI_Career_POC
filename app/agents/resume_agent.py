@@ -1,6 +1,6 @@
 # app/agents/resume_agent.py
 import spacy
-import PyPDF2
+import pdfplumber
 import docx2txt
 from app.services.llm_service import get_gemini_llm
 from app.services.embedding_service import embed_text, add_embedding_to_index
@@ -17,12 +17,11 @@ class ResumeAgent:
 
     def extract_text(self, file_path: str, file_type: str):
         if file_type.lower() == "pdf":
-            text = ""
-            with open(file_path, "rb") as f:
-                reader = PyPDF2.PdfReader(f)
-                for page in reader.pages:
-                    text += page.extract_text()
-            return text
+            text_parts = []
+            with pdfplumber.open(file_path) as pdf:
+                for page in pdf.pages:
+                    text_parts.append(page.extract_text() or "")
+            return "\n".join(text_parts)
         elif file_type.lower() == "docx":
             return docx2txt.process(file_path)
         else:
